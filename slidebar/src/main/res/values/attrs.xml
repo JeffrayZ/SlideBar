@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SlideBar">
+        <attr name="tip_icon" format="reference" />
+        <attr name="item_normal_text_color" format="color" />
+        <attr name="item_touched_text_color" format="color" />
+        <attr name="item_normal_text_size" format="dimension" />
+        <attr name="item_touched_text_size" format="dimension" />
+        <attr name="tip_text_color" format="color" />
+        <attr name="tip_text_size" format="dimension" />
+        <attr name="tip_width" format="dimension" />
+        <attr name="tip_height" format="dimension" />
+    </declare-styleable>
+</resources>
