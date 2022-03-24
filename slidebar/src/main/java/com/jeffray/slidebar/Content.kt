@@ -1,4 +1,4 @@
-package com.ssa.buddy.view.slidebar
+package com.jeffray.slidebar
 
 data class Content(
     val text: String,
