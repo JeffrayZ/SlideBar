@@ -1,18 +1,19 @@
 apply plugin: 'com.github.dcendents.android-maven'
 group='com.github.JeffrayZ'
+
 // 指定编码
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
+tasks.withType(JavaCompile) { // 文档编码配置
+    options.encoding = "UTF-8" // 定义编码
 }
 
-tasks.withType(Javadoc) {
-    options.encoding = 'UTF-8'
+tasks.withType(Javadoc) { // 文档编码配置
+    options.encoding = 'UTF-8' // 定义编码
 }
 
 if (project.hasProperty("android")) { // Android libraries
-    task sourcesJar(type: Jar) {
-        classifier = 'sources'
-        from android.sourceSets.main.java.srcDirs
+    task sourcesJar(type: Jar) { // 源代码的打包任务
+        archiveClassifier = 'sources' // 设置文件的后缀
+        from android.sourceSets.main.java.srcDirs // 所有源代码的读取路径
     }
 
     task javadoc(type: Javadoc) {
@@ -21,9 +22,9 @@ if (project.hasProperty("android")) { // Android libraries
         classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
     }
 } else { // Java libraries
-    task sourcesJar(type: Jar, dependsOn: classes) {
-        classifier = 'sources'
-        from sourceSets.main.allSource
+    task sourcesJar(type: Jar, dependsOn: classes) { // 源代码的打包任务
+        archiveClassifier = 'sources' // 设置文件的后缀
+        from sourceSets.main.allSource // 所有源代码的读取路径
     }
 }
 
@@ -33,17 +34,17 @@ javadoc {
         charSet 'UTF-8'
         author true
         version true
-        links "http://docs.oracle.com/javase/8/docs/api"
+        links "https://docs.oracle.com/javase/8/docs/api"
     }
 }
 
 // 制作文档(Javadoc)
 task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
+    archiveClassifier = 'javadoc'
     from javadoc.destinationDir
 }
 
-artifacts {
-    archives javadocJar
-    archives sourcesJar
+artifacts { // 最终的打包的操作任务
+    archives javadocJar // 源代码打包
+    archives sourcesJar // javadoc打包
 }
