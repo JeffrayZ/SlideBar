@@ -20,7 +20,15 @@ implementation 'com.github.JeffrayZ:SlideBar:1.0.3'
 ```
 ### Step3
 ```xml
-<com.jeffray.slidebar.SlideBar
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.jeffray.slidebar.SlideBar
         android:id="@+id/slide_bar"
         android:layout_width="80dp"
         android:layout_height="0dp"
@@ -36,5 +44,7 @@ implementation 'com.github.JeffrayZ:SlideBar:1.0.3'
         app:tip_text_color="@android:color/white"
         app:tip_text_size="24sp"
         app:tip_width="32dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 ```
 ![Dingtalk_20220324115444](https://user-images.githubusercontent.com/15990982/159839029-f660a091-a222-4b3d-bab2-d595e4d461ee.jpg)
